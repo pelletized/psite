@@ -1,0 +1,187 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.color.js"></script>
+<style>
+body {
+background:url(bg.png) repeat 0 0;
+margin:0;padding:0;
+}
+
+#content {
+width:960px;
+display:inline-block;
+margin:10px auto;
+padding:2px;
+font:4em arial, helvetica, sans-serif;
+color:blue;
+text-transform:uppercase;
+text-decoration:underline;
+
+cursor:pointer;
+}
+
+#content:active {
+color:red;
+}
+
+#audio {
+position:fixed;
+bottom:0;
+left:0;
+}
+
+</style>
+<script>
+
+</script>
+
+</head>
+<body>
+
+<div id="content" onclick="displayPhrase();">Tim</div>
+<div id="audio"></div>
+
+<script>
+$(document).ready(function() {
+displayPhrase();
+playAudio();
+spectrum();  
+});
+
+function spectrum(){  
+	var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';  
+	$('body').animate( { backgroundColor: hue }, 2000);  
+	spectrum();  
+} 
+
+function displayPhrase() {	
+	document.getElementById("content").innerHTML = "";
+	var phrases = [
+		"Tim Senft will fight your cat",
+		"Tim Senft will never be Rick Rolled",		
+		"Tim Senft followed you on Twitter, Facebook, Instagram, and Tumblr",
+		"Tim Senft is into ladies (rights)",
+		"Tim Senft and verbose are synonyms",		
+		"Tim Senft shipped his pants",
+		"Tim Senft is nonplussed by liquids originating from inside the bodies of living people",
+		"Tim Senft ate all the cookies",
+		"Tim Senft will never let you down",
+		"Tim Senft will dance spontaneously and frequently",
+		"Tim Senft knows the difference between an em dash and an en dash",
+		"Tim Senft gave you shooty fingers",
+		"Tim Senft is allergic to mustard",
+		"Tim Senft is Crasey Vasey",
+		"Tim Senft is under construction",
+		"Tim Senft will pillow fight you",
+		"Tim Senft wants you to have a seat right over there",
+		"Tim Senft has a half white mustache",		
+		"Tim Senft baked you a pie",		
+		"Tim Senft respects your opinion",		
+		"Tim Senft bought you a shirt",		
+		"Tim Senft integrates perfectly with your existing structure",		
+		"Tim Senft gave you a headache",				
+		"Tim Senft laughed at your joke",					
+		"Tim Senft is wrinkle resistant",		
+		"Tim Senft is spill proof",		
+		"Tim Senft looks angry when he's lost",		
+		"Tim Senft is a never ending well of content",		
+		"Tim Senft opened the door for you",		
+		"Tim Senft is easily ignored",	
+		"Tim Senft will not be ignored",		
+		"Tim Senft left a comment on your blog",		
+		"Tim Senft appreciates you",	
+		"Tim Senft cured the headache he gave you with lemon juice and 3 strands of Ed Wheeler's hair from 8th grade",
+		"Tim Senft says, 'Mo' Money, mo' Senfts!'",
+		"Tim Senft has tickets to the gun show. They are actual guns",
+		"Tim Senft grew a goatie. That goatie dated your daughter",
+		"Some offices have a burn board, to keep track of office insults. We have a TIM SENFT BOARD",
+		"Tim Senft NAILED that meeting",
+		"Tim Senft asked for a dozen doughnuts. Then he gave the cashier the history behind the Latin version of the word 'dozen'",
+		"Some men and women leave a building as their legacy. Tim Senft left A COUCH",
+		"Tim Senft writes speeches and dictates paragraphs",
+		"Tim Senft once told a bread man to eat his loaf (Senft's bread was rising at that time)",
+		"Like sands through the hourglass, so are the Tim Senfts of our lives....",	
+		"Tim Senft said 'it's cool, just don't do it again'",		
+		"Tim Senft is gorges"
+		];
+		
+	var pictures = [
+		"1.gif",
+		"2.gif",
+		"3.gif",
+		"4.gif",
+		"5.gif",
+		"6.gif",
+		"7.gif",
+		"8.gif",
+		"9.gif",
+		"10.gif",
+		"11.gif",
+		"12.gif",
+		"13.gif",
+		"14.gif",
+		"15.gif",
+		"16.gif",
+		"17.gif",
+		"18.gif",
+		"19.gif",
+		"20.gif",
+		"21.gif",
+		"22.gif",
+		"23.gif",
+		"24.gif",
+		"25.gif",
+		"26.gif",
+		"27.gif",
+		"28.gif",
+		"29.gif",
+		"30.gif",
+		"31.gif",
+		"32.gif",		
+		"33.gif",
+		"34.gif",
+		"35.gif",
+		"36.gif",
+		"37.gif",
+		"38.gif",
+		"39.gif",
+		"40.gif",
+		"41.gif",
+		"42.gif",
+		"43.gif",
+		"44.gif",
+		"45.gif",
+		"46.gif",
+		"47.gif",
+		"48.gif",
+		"49.gif",
+		"50.gif",
+		"51.gif",
+		"52.gif"
+	]
+	var randomNumPhrases = Math.floor(Math.random() * phrases.length);
+	var randomNumPictures = Math.floor(Math.random() * pictures.length);
+	var phraseContent = phrases[randomNumPhrases];
+	var pictureContent = pictures[randomNumPictures];
+	//console.log("phrase: " + phraseContent);
+	//console.log("picture: " + pictureContent);
+	var content = phraseContent + "<div align=center><br /><br /><img src='images/" + pictureContent + "' /></div>";
+	
+	
+	
+	//console.log(randomNum);
+	document.getElementById("content").innerHTML = content;
+
+}
+
+function playAudio() {
+	$("#audio").stop("true").delay('10000').queue(function() { 	
+		$("#audio").html('<audio controls autoplay loop><source src="audio.mp3" type="audio/mp3" /></audio>');
+	});
+}
+
+</script>
+
+</body>
+</html>
